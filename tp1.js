@@ -1,4 +1,4 @@
-//Enlace al video:
+//Enlace al video: https://youtu.be/AyOYwU4Kl48
 
 let obra;
 let colorLineaArriba1, colorLineaArriba2, colorLineaArriba3, colorLineaArriba4, colorLineaArriba5, colorLineaArriba6, colorLineaArriba7, colorLineaArriba8, colorLineaArriba9, colorLineaArriba10, colorLineaArriba11, colorLineaArriba12;
@@ -59,7 +59,6 @@ function setup() {
   colorLineaAbajo12 = color (30, 64, 83);
 }
 
-
 function draw() {
   fondoRayado();
   tresCirculos();
@@ -67,20 +66,23 @@ function draw() {
   rotate(0.0046);
   image(obra, 0, 0, 400, 400);
   pop();
-  
   movimiento();
 }
 
 function movimiento () {
-  if (keyCode === RIGHT_ARROW) {
-    posXFondo = posXFondo+1;
-    posXCirculos= posXCirculos-2;
-    posYCirculos= posYCirculos+2;
-  } else if (keyCode === LEFT_ARROW) {
-    posXFondo = posXFondo-1;
-    posXCirculos= posXCirculos+2;
-    posYCirculos= posYCirculos-2;
-  } else if (mouseButton == LEFT && mouseX<width/2 && mouseY<height) {
+  if (keyIsPressed === true) {
+    if (keyCode === LEFT_ARROW) {
+      posXFondo--;
+      posXCirculos= posXCirculos+2;
+      posYCirculos= posYCirculos-2;
+    } else if (keyCode === RIGHT_ARROW) {
+      posXFondo++;
+      posXCirculos= posXCirculos-2;
+      posYCirculos= posYCirculos+2;
+    }
+  }
+
+  if (mouseButton == LEFT && mouseX<width/2 && mouseY<height) {
     posXFondo = 100;
     posXCirculos = 426;
     posYCirculos = 234;
