@@ -67,20 +67,20 @@ function draw() {
   rotate(0.0046);
   image(obra, 0, 0, 400, 400);
   pop();
+  
+  movimiento();
 }
 
-function mouseClicked () {
-  if (mouseButton == RIGHT) {
-    posXFondo++;
+function movimiento () {
+  if (keyCode === RIGHT_ARROW) {
+    posXFondo = posXFondo+1;
     posXCirculos= posXCirculos-2;
     posYCirculos= posYCirculos+2;
-  } else if (mouseButton == LEFT) {
-    posXFondo--;
+  } else if (keyCode === LEFT_ARROW) {
+    posXFondo = posXFondo-1;
     posXCirculos= posXCirculos+2;
     posYCirculos= posYCirculos-2;
-  }
-
-  if (mouseX<width/2 && mouseY<height) {
+  } else if (mouseButton == LEFT && mouseX<width/2 && mouseY<height) {
     posXFondo = 100;
     posXCirculos = 426;
     posYCirculos = 234;
