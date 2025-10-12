@@ -1,5 +1,6 @@
 let fuente;
 let textos;
+let soundtrack;
 let cartel1;
 let cartel2;
 let imagenesFondo = [];
@@ -10,6 +11,8 @@ let lineaTexto = -1;
 function preload() {
   fuente = loadFont('/data/fingerPaint.ttf');
   textos = loadStrings('/data/textos.txt');
+  soundFormats('mp3');
+  soundtrack = loadSound('/data/soundtrack.mp3');
   cartel1 = loadImage("data/cartel1.png");
   cartel2 = loadImage("data/cartel2.png");
 
@@ -49,6 +52,7 @@ function mouseClicked() {
   if (mouseX >= 270 && mouseX <= 370 && mouseY >= 345 && mouseY <= 390) {
     numFondo++;
     lineaTexto = numFondo-1;
+    soundtrack.play();
     if (numFondo == 9 || numFondo == 13 || numFondo == 16) {
       numFondo = 0;
       lineaTexto = numFondo-1;
