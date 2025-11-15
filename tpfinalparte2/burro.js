@@ -11,7 +11,7 @@ class PersonajeBurro {
   }
 
   teclaPresionada() {
-    if(keyCode === UP_ARROW && this.posYBurro >= 200){
+    if(keyCode === UP_ARROW && this.posYBurro >= 280){
       this.posYBurro = this.posYBurro - 20;
     } else if(keyCode === DOWN_ARROW && this.posYBurro <= 400){
       this.posYBurro = this.posYBurro + 20;

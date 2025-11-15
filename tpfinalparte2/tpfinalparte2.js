@@ -1,10 +1,14 @@
 let juego;
-let puebloFondo;
+let fondo;
+let pueblo;
+let camino;
 
 
-/*function preload() {
-  puebloFondo = loadImage("data/fondo" + i + ".png");
-}*/
+function preload() {
+  fondo = loadImage("data/fondo.png");
+  pueblo = loadImage("data/pueblo.png");
+  camino = loadImage("data/camino.png");
+}
 
 function setup() {
   createCanvas(640, 480);
@@ -15,7 +19,6 @@ function setup() {
 
 function draw() {
   background (250, 244, 182);
-  //image(puebloFondo, 0, 0, 640, 480);
   juego.dibujar();
 }
 
