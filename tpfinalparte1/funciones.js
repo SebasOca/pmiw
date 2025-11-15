@@ -2,7 +2,7 @@ function pantallaInicial () {
   textSize(48);
   textFont(fuente);
   textAlign (CENTER);
-  text("Los Músicos de Bremen", 60, 150, 500, 200);
+  text("Los Músicos de Bremen", 60, 280, 500, 200);
   image(cartel1, 260, 340, 120, 120);
 }
 
