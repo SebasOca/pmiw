@@ -6,8 +6,6 @@ class PersonajeBurro {
   }
 
   dibujar() {
-    fill(255);
-    //rect(this.posXBurro, this.posYBurro, 60, 40);
     image(burroImg, this.posXBurro, this.posYBurro, 100, 80);
   }
 

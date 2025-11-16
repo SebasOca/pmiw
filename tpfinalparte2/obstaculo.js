@@ -6,8 +6,7 @@ class Obstaculo {
   }
 
   dibujar() {
-    fill(0);
-    rect(this.posXObstaculo, this.posYObstaculo, 40, 70);
+    image(obstaculo2Img, this.posXObstaculo, this.posYObstaculo, 140, 100);
     this.mover();
   }
 

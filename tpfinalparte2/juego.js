@@ -1,7 +1,7 @@
 class Juego {
   constructor() {
     this.jugador = new Jugador();
-    this.cantObstaculos = 20;
+    this.cantObstaculos = 30;
     this.Obstaculos = [];
     this.cantPerseguidores = 2;
     this.Perseguidores = [];
@@ -23,7 +23,7 @@ class Juego {
   }
 
   dibujar() {
-   // this.dibujarEscenario();
+    // this.dibujarEscenario();
     this.dibujarObstaculos();
     this.dibujarPerseguidores();
     this.jugador.dibujar();
@@ -48,8 +48,12 @@ class Juego {
   }
 
   dibujarHud() {
-    fill(0);
-    text("Vidas: " + this.jugador.vidas, 50, 50);
+    image(letrero, 30, 30, 100, 50);
+    fill(255);
+    textSize (14);
+    textFont(fuente);
+    textAlign (CENTER);
+    text("Vidas: " + this.jugador.vidas, 80, 60);
   }
 
   teclaPresionada() {

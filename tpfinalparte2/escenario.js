@@ -1,7 +1,7 @@
 class Escenario {
   constructor() {
     this.posXEscenario = posXEscenario;
-    this.velocidad = 4;
+    this.velEscenario = 4;
   }
 
   dibujar(posXEscenario) {
@@ -12,7 +12,13 @@ class Escenario {
     this.mover();
   }
 
+  repeticionFondo() {
+    image(fondo[i], 0, 0, 60, 480);
+    image(fondo[i], 0, 0, 640, 480);
+    image(fondo[i], 0, 0, 640, 480);
+  }
+
   mover() {
-    this.posXEscenario = this.posXEscenario - this.velocidad;
+    this.posXEscenario = this.posXEscenario - this.velEscenario;
   }
 }
