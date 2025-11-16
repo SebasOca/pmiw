@@ -7,17 +7,18 @@ class PersonajeBurro {
 
   dibujar() {
     fill(255);
-    rect(this.posXBurro, this.posYBurro, 60, 40);
+    //rect(this.posXBurro, this.posYBurro, 60, 40);
+    image(burroImg, this.posXBurro, this.posYBurro, 100, 80);
   }
 
   teclaPresionada() {
-    if(keyCode === UP_ARROW && this.posYBurro >= 280){
+    if (keyCode === UP_ARROW && this.posYBurro >= 280) {
       this.posYBurro = this.posYBurro - 20;
-    } else if(keyCode === DOWN_ARROW && this.posYBurro <= 400){
+    } else if (keyCode === DOWN_ARROW && this.posYBurro <= 400) {
       this.posYBurro = this.posYBurro + 20;
-    } else if(keyCode === LEFT_ARROW && this.posXBurro >= 100){
+    } else if (keyCode === LEFT_ARROW && this.posXBurro >= 100) {
       this.posXBurro = this.posXBurro - 20;
-    } else if(keyCode === RIGHT_ARROW && this.posXBurro <= 540){
+    } else if (keyCode === RIGHT_ARROW && this.posXBurro <= 540) {
       this.posXBurro = this.posXBurro + 20;
     }
   }

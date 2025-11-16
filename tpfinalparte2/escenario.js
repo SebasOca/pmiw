@@ -1,10 +1,10 @@
 class Escenario {
-  constructor(posXEscenario) {
+  constructor() {
     this.posXEscenario = posXEscenario;
     this.velocidad = 4;
   }
 
-  dibujar() {
+  dibujar(posXEscenario) {
     rect(this.posXEscenario, 0, 640, 480);
     image(fondo, this.posXEscenario, 0, 640, 480);
     image(pueblo, this.posXEscenario, 0, 640, 480);

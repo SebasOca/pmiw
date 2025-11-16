@@ -5,7 +5,7 @@ class Juego {
     this.Obstaculos = [];
     this.cantPerseguidores = 2;
     this.Perseguidores = [];
-    this.Escenario();
+    //this.Escenario();
   }
 
   iniciar() {
@@ -23,7 +23,7 @@ class Juego {
   }
 
   dibujar() {
-    this.dibujarEscenario();
+   // this.dibujarEscenario();
     this.dibujarObstaculos();
     this.dibujarPerseguidores();
     this.jugador.dibujar();
