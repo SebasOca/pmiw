@@ -1,14 +1,12 @@
 class Juego {
-  constructor(cambio) {
-    this.cambio = cambio;
-
+  constructor() {
     this.jugador = new Jugador();
     this.escenario = new Escenario();
     this.cantObstaculos = 28;
     this.Obstaculos = [];
-    this.cantPerseguidores = 2;
-    this.Perseguidores = [];
-    this.pantallaResultado = new PantallaResultado();
+    this.perseguidor = new Perseguidor();
+    this.pantallaGanar = new PantallaGanar();
+    this.pantallaPerder = new PantallaPerder();
   }
 
   iniciar() {
@@ -17,23 +15,26 @@ class Juego {
       let posYObstaculo = random(250, 380);
       this.Obstaculos[i] = new Obstaculo(posXObstaculo, posYObstaculo);
     }
-    for (let u=0; u<this.cantPerseguidores; u++) {
-      let posXPerseguidor = random(0, 20);
-      let posYPerseguidor = random(250, 380);
-      this.Perseguidores[u] = new Perseguidor(posXPerseguidor, posYPerseguidor);
-    }
+  }
+
+  reiniciar() {
+    this.jugador = new Jugador();
+    this.escenario = new Escenario();
+    this.Obstaculos = [];
+    this.Perseguidores = [];
+    this.iniciar();
   }
 
   dibujar() {
     if (dist(this.escenario.posXMeta + 340, 0, this.jugador.burro.posXBurro + 80, 0) > 20 && this.jugador.vidas >= 1) {
       this.escenario.dibujar();
       this.dibujarObstaculos();
-      this.dibujarPerseguidores();
+      this.perseguidor.dibujar();
       this.jugador.dibujar();
       this.choquePersonaje();
       this.dibujarHud();
     } else {
-      this.choqueMetaFinal();
+      this.meta();
       this.sinVida();
     }
   }
@@ -41,12 +42,6 @@ class Juego {
   dibujarObstaculos() {
     for (let i=0; i<this.cantObstaculos; i++) {
       this.Obstaculos[i].dibujar();
-    }
-  }
-
-  dibujarPerseguidores() {
-    for (let u=0; u<this.cantPerseguidores; u++) {
-      this.Perseguidores[u].dibujar();
     }
   }
 
@@ -59,11 +54,11 @@ class Juego {
     }
   }
 
-  choqueMetaFinal() {
+  meta() {
     if (dist(this.escenario.posXMeta + 340, 0, this.jugador.burro.posXBurro + 80, 0) < 20 && this.jugador.vidas >= 1) {
       this.escenario.velEscenario1 = 0;
       this.escenario.velEscenario2 = 0;
-      this.pantallaResultado.cartelGana();
+      this.pantallaGanar.dibujar();
     }
   }
 
@@ -71,7 +66,7 @@ class Juego {
     if (this.jugador.vidas === 0) {
       this.escenario.velEscenario1 = 0;
       this.escenario.velEscenario2 = 0;
-      this.pantallaResultado.cartelPierde();
+      this.pantallaPerder.dibujar();
     }
   }
 
@@ -86,12 +81,5 @@ class Juego {
 
   teclaPresionada() {
     this.jugador.teclaPresionada();
-    /*if (keyCode === ENTER) {
-     this.cambio.cambiarPantalla(new PantallaInicio(this.cambio));
-     } else {
-     this.jugador.teclaPresionada();
-     }*/
   }
-  
-  
 }

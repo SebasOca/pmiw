@@ -3,8 +3,9 @@ class PantallaActiva {
     this.estado = 0;
     this.pantallaInicio = new PantallaInicio();
     this.juego = new Juego();
-    this.pantallaResultado = new PantallaResultado();
-    this.pantallaActual = new PantallaInicio(this);
+    this.pantallaGanar = new PantallaGanar();
+    this.pantallaPerder = new PantallaPerder();
+    this.pantallaActual = new PantallaInicio();
   }
 
   dibujar() {
@@ -12,7 +13,7 @@ class PantallaActiva {
       this.pantallaInicio.dibujar();
     } else if (this.estado === 1) {
       this.juego.dibujar();
-    } 
+    }
   }
 
 
@@ -22,7 +23,14 @@ class PantallaActiva {
       this.juego.iniciar();
     } else if (this.estado === 1) {
       this.estado = 0;
-    } 
+    }
+
+    if (dist(this.juego.escenario.posXMeta + 340, 0, this.juego.jugador.burro.posXBurro + 80, 0) > 20 && this.juego.jugador.vidas >= 1) {
+      this.juego.reiniciar();
+    }
+    if (this.juego.jugador.vidas === 0) {
+      this.juego.reiniciar();
+    }
   }
 
   teclaPresionada() {

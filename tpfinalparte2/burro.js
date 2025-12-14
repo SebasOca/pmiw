@@ -8,8 +8,8 @@ class PersonajeBurro {
     image(burroImg, this.posXBurro, this.posYBurro, 100, 80);
   }
 
-  teclaPresionada() {// volver a cambiar el limite al terminar
-    if (keyCode === UP_ARROW && this.posYBurro >= 200) {
+  teclaPresionada() {
+    if (keyCode === UP_ARROW && this.posYBurro >= 250) {
       this.posYBurro = this.posYBurro - 20;
     } else if (keyCode === DOWN_ARROW && this.posYBurro <= 370) {
       this.posYBurro = this.posYBurro + 20;

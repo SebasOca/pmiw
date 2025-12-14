@@ -7,6 +7,7 @@ let burroImg, perseguidor, obstaculo1, obstaculo2, cartelVidas;
 let fuente;
 
 
+
 function preload() {
   fondoInicio = loadImage ("data/fondoInicio.png");
   decoInicio = loadImage ("data/decoInicio.png");
@@ -40,6 +41,8 @@ function draw() {
 
 function mouseClicked() {
   pantallaActiva.mousePresionado();
+  
+  
 }
 
 

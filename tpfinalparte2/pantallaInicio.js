@@ -1,6 +1,6 @@
 class PantallaInicio {
-  constructor(cambio) {
-    this.cambio = cambio;
+  constructor() {
+    //
   }
 
   dibujar() {
@@ -25,10 +25,4 @@ class PantallaInicio {
     textSize (12);
     text ("Sebastián Ocampo   PMIW 2025                    Basado en Los músicos de Bremen", 10, 460, 620, 500);
   }
-
-  /*teclaPresionada() {
-    if (keyCode === ENTER) {
-      this.cambio.cambiarPantalla(new Juego(this.cambio));
-    }
-  }*/
 }
