@@ -21,6 +21,7 @@ class PantallaActiva {
     if (this.estado === 0) {
       this.estado = 1;
       this.juego.iniciar();
+      soundtrack.play();
     } else if (this.estado === 1) {
       this.estado = 0;
     }

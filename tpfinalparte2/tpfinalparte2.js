@@ -1,4 +1,4 @@
-//Enlace:
+//Enlace: https://youtu.be/nIfouowYQfM
 
 let pantallaActiva;
 let fondoInicio, decoInicio, cartel;
@@ -41,10 +41,7 @@ function draw() {
 
 function mouseClicked() {
   pantallaActiva.mousePresionado();
-  
-  
 }
-
 
 function keyPressed() {
   pantallaActiva.teclaPresionada();
