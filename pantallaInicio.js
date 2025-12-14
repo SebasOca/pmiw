@@ -26,9 +26,9 @@ class PantallaInicio {
     text ("Sebastián Ocampo   PMIW 2025                    Basado en Los músicos de Bremen", 10, 460, 620, 500);
   }
 
-  teclaPresionada() {
+  /*teclaPresionada() {
     if (keyCode === ENTER) {
       this.cambio.cambiarPantalla(new Juego(this.cambio));
     }
-  }
+  }*/
 }

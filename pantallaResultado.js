@@ -10,7 +10,11 @@ class PantallaResultado {
   }
 
   cartelGana() {
-    image(letrero, posXCartelResultado, posYCartelResultado, 200, 100);
+    background (69, 219, 115);
+    tint (255,120);
+    image(decoInicio, 0, 0, 640, 480);
+    tint (255, 255);
+    image(cartelVidas, this.posXCartelResultado, this.posYCartelResultado, 200, 100);
     textSize (24);
     textFont(fuente);
     textAlign (CENTER);
@@ -19,7 +23,11 @@ class PantallaResultado {
   }
 
   cartelPierde() {
-    image(letrero, posXCartelResultado, posYCartelResultado, 200, 100);
+    background (183, 100, 100);
+    tint (255,120);
+    image(decoInicio, 0, 0, 640, 480);
+    tint (255, 255);
+    image(cartelVidas, this.posXCartelResultado, this.posYCartelResultado, 200, 100);
     textSize (24);
     textFont(fuente);
     textAlign (CENTER);

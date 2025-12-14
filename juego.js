@@ -1,24 +1,17 @@
 class Juego {
   constructor(cambio) {
     this.cambio = cambio;
-    
+
     this.jugador = new Jugador();
-    //this.escenario = new Escenario();
-    this.cantEscenarios = 18;
-    this.Escenarios = [];
+    this.escenario = new Escenario();
     this.cantObstaculos = 28;
     this.Obstaculos = [];
     this.cantPerseguidores = 2;
     this.Perseguidores = [];
+    this.pantallaResultado = new PantallaResultado();
   }
 
   iniciar() {
-    for (let j=0; j<this.cantEscenarios; j++) {
-      let posXEscenario = 0;
-      this.Escenarios[j] = new Escenario(posXEscenario, 0);
-    }
-
-
     for (let i=0; i<this.cantObstaculos; i++) {
       let posXObstaculo = random(600, 7500);
       let posYObstaculo = random(250, 380);
@@ -32,18 +25,16 @@ class Juego {
   }
 
   dibujar() {
-    //this.escenario.dibujar();
-    this.dibujarEscenarios();
-    this.dibujarObstaculos();
-    this.dibujarPerseguidores();
-    this.jugador.dibujar();
-    this.choquePersonaje();
-    this.dibujarHud();
-  }
-
-  dibujarEscenarios() {
-    for (let j=0; j<this.cantEscenarios; j++) {
-      this.Escenarios[j].dibujar();
+    if (dist(this.escenario.posXMeta + 340, 0, this.jugador.burro.posXBurro + 80, 0) > 20 && this.jugador.vidas >= 1) {
+      this.escenario.dibujar();
+      this.dibujarObstaculos();
+      this.dibujarPerseguidores();
+      this.jugador.dibujar();
+      this.choquePersonaje();
+      this.dibujarHud();
+    } else {
+      this.choqueMetaFinal();
+      this.sinVida();
     }
   }
 
@@ -67,7 +58,23 @@ class Juego {
       }
     }
   }
-  
+
+  choqueMetaFinal() {
+    if (dist(this.escenario.posXMeta + 340, 0, this.jugador.burro.posXBurro + 80, 0) < 20 && this.jugador.vidas >= 1) {
+      this.escenario.velEscenario1 = 0;
+      this.escenario.velEscenario2 = 0;
+      this.pantallaResultado.cartelGana();
+    }
+  }
+
+  sinVida() {
+    if (this.jugador.vidas === 0) {
+      this.escenario.velEscenario1 = 0;
+      this.escenario.velEscenario2 = 0;
+      this.pantallaResultado.cartelPierde();
+    }
+  }
+
   dibujarHud() {
     image(cartelVidas, 30, 30, 100, 50);
     fill(255);
@@ -78,10 +85,13 @@ class Juego {
   }
 
   teclaPresionada() {
-    if (keyCode === ENTER) {
-      this.cambio.cambiarPantalla(new PantallaInicio(this.cambio));
-    } else{
-      this.jugador.teclaPresionada();  
-    }
+    this.jugador.teclaPresionada();
+    /*if (keyCode === ENTER) {
+     this.cambio.cambiarPantalla(new PantallaInicio(this.cambio));
+     } else {
+     this.jugador.teclaPresionada();
+     }*/
   }
+  
+  
 }

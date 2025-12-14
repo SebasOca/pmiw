@@ -5,7 +5,6 @@ class Escenario {
     this.posXMeta = 7700;
     this.velEscenario1 = 2;
     this.velEscenario2 = 4;
-    this.cantRepeticiones = 18;
   }
 
   dibujar() {
@@ -15,7 +14,7 @@ class Escenario {
 
     image(arbolMeta, this.posXMeta, -40, 420, 560);
     fill(0, 0, 0);
-    rect(this.posXMeta, 0, 640, 480);
+    rect(this.posXMeta+400, 0, 640, 480);
     this.mover();
   }
 
@@ -23,5 +22,7 @@ class Escenario {
     this.posXEscenario1 = this.posXEscenario1 - this.velEscenario1;
     this.posXEscenario2 = this.posXEscenario2 - this.velEscenario2;
     this.posXMeta = this.posXMeta - this.velEscenario2;
+
+    
   }
 }
